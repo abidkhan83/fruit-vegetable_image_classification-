@@ -1,6 +1,6 @@
 # 🖼️ Image Classification Web App (Flask + TensorFlow)
 
-This is a simple web application that allows users to classify images using a pre-trained deep learning cnn model built with TensorFlow/Keras. The project is deployed using **Streamlit**, making it easy to interact with your trained model via a browser interface.
+This is a simple web application that allows users to classify images using a pre-trained deep learning cnn model built with TensorFlow/Keras. The project is deployed using **Flask**, making it easy to interact with your trained model via a browser interface.
 
 ---
 
@@ -31,7 +31,4 @@ This is a simple web application that allows users to classify images using a pr
 
 ---
 
-## 📦 Installation & Setup
-
-### 1. Clone the Repository
 
