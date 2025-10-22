@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fruits & Vagetable Classifier</title>
+ <style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #e0f7fa, #fffde7);
+        padding: 40px;
+        text-align: center;
+        color: #333;
+    }
+
+    .container {
+        background: #ffffffcc;
+        padding: 30px;
+        border-radius: 15px;
+        max-width: 550px;
+        margin: auto;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(6px);
+        transition: all 0.3s ease;
+    }
+
+    .container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+        font-size: 2rem;
+        color: #00695c;
+        margin-bottom: 1rem;
+    }
+
+    input[type="file"] {
+        margin: 1rem 0;
+        padding: 10px;
+        border: 2px dashed #ccc;
+        border-radius: 10px;
+        background-color: #fafafa;
+        width: 100%;
+    }
+
+    button {
+        background-color: #00897b;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+        background-color: #00695c;
+    }
+
+    img {
+        max-width: 100%;
+        margin-top: 20px;
+        border-radius: 12px;
+        border: 3px solid #e0f2f1;
+    }
+
+    .result {
+        margin-top: 25px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #1b5e20;
+        background-color: #e8f5e9;
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #c8e6c9;
+    }
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>🍎 Fruit & Veggie Classifier</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" required><br><br>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if filename %}
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+        {% endif %}
+
+        {% if prediction %}
+            <div class="result">
+                🔍 Predicted: <strong>{{ prediction.title() }}</strong><br>
+                📊 Confidence: {{ '%.2f'|format(confidence) }}%
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
